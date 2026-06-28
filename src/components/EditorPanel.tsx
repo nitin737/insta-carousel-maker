@@ -1,4 +1,22 @@
-import React from 'react';
+import React, { ChangeEvent } from 'react';
+
+interface EditorPanelProps {
+  copyPromptToClipboard: () => void;
+  isPromptCopied: boolean;
+  handle: string;
+  setHandle: (handle: string) => void;
+  repoLink: string;
+  setRepoLink: (repoLink: string) => void;
+  selectedPreset: string;
+  handlePresetChange: (e: ChangeEvent<HTMLSelectElement>) => void;
+  headerTheme: string;
+  setHeaderTheme: (theme: string) => void;
+  jsonInput: string;
+  handleJsonInputChange: (e: ChangeEvent<HTMLTextAreaElement>) => void;
+  jsonError: string | null;
+  customFileName: string;
+  setCustomFileName: (name: string) => void;
+}
 
 export default function EditorPanel({
   copyPromptToClipboard,
@@ -16,7 +34,7 @@ export default function EditorPanel({
   jsonError,
   customFileName,
   setCustomFileName
-}) {
+}: EditorPanelProps) {
   return (
     <div className="editor-panel">
       <div className="panel-section">

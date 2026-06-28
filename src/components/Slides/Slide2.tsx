@@ -1,12 +1,22 @@
 import React from 'react';
 import SlideWrapper from './SlideWrapper';
 
+export interface Slide2Props {
+  slideData?: any;
+  headerTheme?: string;
+  handle?: string;
+  isScalingActive: boolean;
+  exportSingleSlide: (slideNumber: number) => void;
+}
+
 export default function Slide2({
+
   slideData,
   handle,
   isScalingActive,
   exportSingleSlide
-}) {
+
+}: Slide2Props) {
   const headline = slideData?.headline || "";
   const pain = slideData?.pain || "";
   const cure = slideData?.cure || "";
@@ -59,7 +69,7 @@ export default function Slide2({
             <div className="s2-point-text" style={{ marginTop: '4px', color: 'rgba(248, 250, 252, 0.85)' }}>{cure}</div>
             
             <ul className="s2-checkpoint-list" style={{ marginTop: '16px' }}>
-              {features.map((pt, i) => (
+              {features.map((pt: any, i: number) => (
                 <li key={i} className="s2-checkpoint-item" style={{ display: 'flex', gap: '8px', alignItems: 'center' }}>
                   <span className="s2-checkpoint-icon">✅</span>
                   <span className="s2-checkpoint-text" style={{ fontSize: '1.1rem', color: '#cbd5e1' }}>{pt}</span>

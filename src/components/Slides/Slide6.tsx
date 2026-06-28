@@ -1,12 +1,22 @@
 import React from 'react';
 import SlideWrapper from './SlideWrapper';
 
+export interface Slide6Props {
+  slideData?: any;
+  headerTheme?: string;
+  handle?: string;
+  isScalingActive: boolean;
+  exportSingleSlide: (slideNumber: number) => void;
+}
+
 export default function Slide6({
+
   slideData,
   handle,
   isScalingActive,
   exportSingleSlide
-}) {
+
+}: Slide6Props) {
   const title = slideData?.title || "SECRET PRO TIP";
   const tipText = slideData?.tipText || "";
   const backgroundImage = slideData?.backgroundImage || "src/assets/background.png";

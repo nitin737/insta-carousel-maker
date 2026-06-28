@@ -1,12 +1,22 @@
 import React from 'react';
 import SlideWrapper from './SlideWrapper';
 
+export interface Slide7Props {
+  slideData?: any;
+  headerTheme?: string;
+  handle?: string;
+  isScalingActive: boolean;
+  exportSingleSlide: (slideNumber: number) => void;
+}
+
 export default function Slide7({
+
   slideData,
   handle,
   isScalingActive,
   exportSingleSlide
-}) {
+
+}: Slide7Props) {
   const title = slideData?.title || "Run AI Natively at Scale.";
   const cta1 = slideData?.cta1 || "";
   const cta2 = slideData?.cta2 || "";

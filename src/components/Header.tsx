@@ -1,6 +1,11 @@
 import React from 'react';
 
-export default function Header({ exportAllSlides, isExported }) {
+interface HeaderProps {
+  exportAllSlides: () => void;
+  isExported: boolean;
+}
+
+export default function Header({ exportAllSlides, isExported }: HeaderProps) {
   return (
     <header>
       <div className="logo-container">

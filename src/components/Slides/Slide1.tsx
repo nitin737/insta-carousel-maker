@@ -1,13 +1,23 @@
 import React from 'react';
 import SlideWrapper from './SlideWrapper';
 
+export interface Slide1Props {
+  slideData?: any;
+  headerTheme?: string;
+  handle?: string;
+  isScalingActive: boolean;
+  exportSingleSlide: (slideNumber: number) => void;
+}
+
 export default function Slide1({
+
   slideData,
   headerTheme,
   handle,
   isScalingActive,
   exportSingleSlide
-}) {
+
+}: Slide1Props) {
   // --- Repo Identity ---
   const {
     owner = "owner",
@@ -98,7 +108,7 @@ export default function Slide1({
       const parts = description.split(regex);
       return (
         <>
-          {parts.map((part, i) =>
+          {parts.map((part: string, i: number) =>
             part.toLowerCase() === highlight.toLowerCase() ? (
               <span key={i} className="github-description-highlight">{part}</span>
             ) : part
@@ -115,7 +125,7 @@ export default function Slide1({
 
   // Renders the tags
   const renderTags = () => {
-    return tags.slice(0, 12).map((tag, i) => (
+    return tags.slice(0, 12).map((tag: string, i: number) => (
       <span key={i} className="github-tag">{tag}</span>
     ));
   };

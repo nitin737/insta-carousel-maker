@@ -3,12 +3,22 @@ import SlideWrapper from './SlideWrapper';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
+export interface Slide5Props {
+  slideData?: any;
+  headerTheme?: string;
+  handle?: string;
+  isScalingActive: boolean;
+  exportSingleSlide: (slideNumber: number) => void;
+}
+
 export default function Slide5({
+
   slideData,
   handle,
   isScalingActive,
   exportSingleSlide
-}) {
+
+}: Slide5Props) {
   const headline = slideData?.headline || "Add This to Your Go.mod Today.";
   const quickstart = slideData?.quickstart || "";
   const minimalSetup = slideData?.minimalSetup || "";
@@ -59,7 +69,7 @@ export default function Slide5({
           {resources.length > 0 && (
             <div className="s5-resources" style={{ flex: 1, padding: '20px', background: 'rgba(255,255,255,0.03)', borderRadius: '12px' }}>
               <div style={{ marginBottom: '12px', color: '#cbd5e1', fontWeight: 600, fontSize: '1.2rem', textTransform: 'uppercase', letterSpacing: '0.05em' }}>Resources</div>
-              {resources.map((res, i) => (
+              {resources.map((res: any, i: number) => (
                 <div key={i} className="s5-resource-item" style={{ marginBottom: '8px' }}>
                   <span className="s5-resource-icon">📖</span>
                   <span className="s5-resource-label" style={{ color: '#f8fafc', fontWeight: 500, marginRight: '8px' }}>{res.label}:</span>
