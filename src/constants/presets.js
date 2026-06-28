@@ -25,7 +25,7 @@ export const presets = {
       langGoPct: 98.7,
       langOtherPct: 1.3,
       // --- Appearance ---
-      backgroundImage: "src/assets/slide1-bg.jpg",
+      backgroundImage: "slide1-bg.jpg",
     },
     slide2: {
       headline: "Solve CLI Boilerplate with Zero Friction.",
@@ -36,7 +36,7 @@ export const presets = {
         "Standardized: Uses only standard Go patterns and POSIX flags.",
         "High Performance: Optimized to avoid unnecessary allocations.",
       ],
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
     slide3: {
       headline: "Standard Library—But Smarter.",
@@ -46,7 +46,7 @@ export const presets = {
         '// 3 lines. Handles parsing, help, and completions.\nvar rootCmd = &cobra.Command{Use: "app"}\nrootCmd.AddCommand(&cobra.Command{Use: "serve"})\nrootCmd.Execute()',
       takeaway:
         "Cobra integrates seamlessly with your existing Go codebase, making it a drop-in upgrade.",
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
     slide4: {
       headline: "Designed for Real-World Go Projects.",
@@ -68,7 +68,7 @@ export const presets = {
           desc: "Works alongside your existing codebase without forcing a full refactor.",
         },
       ],
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
     slide5: {
       headline: "Add This to Your Go.mod Today.",
@@ -85,7 +85,7 @@ export const presets = {
         { icon: "⭐", text: "Star us on GitHub if you find it useful." },
         { icon: "➡️", text: "Share with your engineering team!" },
       ],
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
   },
   Carbonyl: {
@@ -120,7 +120,7 @@ export const presets = {
         "Ultra-low Footprint: 18x memory reduction compared to Headless Chrome.",
         "Terminal Native: Stream high-fidelity web views inside Go TUI applications.",
       ],
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
     slide3: {
       headline: "Introducing Carbonyl.",
@@ -130,7 +130,7 @@ export const presets = {
         '// Extremely lightweight TUI browsing\nctx := context.Background()\nbrowser := carbonyl.New(ctx)\nresp, _ := browser.Render(ctx, "https://news.ycombinator.com")',
       takeaway:
         "A drop-in replacement for bulky Python Selenium or Puppeteer microservices with zero friction.",
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
     slide4: {
       headline: "Terminal View Rendering in Go.",
@@ -152,7 +152,7 @@ export const presets = {
           desc: "Self-contained architecture for instant terminal rendering.",
         },
       ],
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
     slide5: {
       headline: "Run Modern Web in Your Terminal.",
@@ -169,7 +169,7 @@ export const presets = {
         { icon: "⭐", text: "Star us on GitHub if you find it useful." },
         { icon: "➡️", text: "Share with your engineering team!" },
       ],
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
   },
   "chromem-go": {
@@ -193,7 +193,7 @@ export const presets = {
       contributorsCount: 12,
       langGoPct: 100.0,
       langOtherPct: 0.0,
-      backgroundImage: "src/assets/slide1-bg.jpg",
+      backgroundImage: "slide1-bg.jpg",
     },
     slide2: {
       headline: "Vector Search Without the Infra Overhead.",
@@ -204,7 +204,7 @@ export const presets = {
         "Concurrently Fast: Leverages Go's native goroutine concurrency model for lightning-fast multi-threaded document indexing and search.",
         "Flexible Creators: Built-in support for OpenAI, Ollama, Cohere, Mistral, and Jina out-of-the-box, plus custom function options.",
       ],
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
     slide3: {
       headline: "From Infra Mess to Local Calls",
@@ -214,7 +214,7 @@ export const presets = {
         '// Simple, embedded, and entirely in-process\ndb := chromem.NewDB()\ncollection, _ := db.CreateCollection("docs", nil, nil)\n\n// Add and query directly inside your local memory space\ncollection.Add(ctx, ids, nil, metadatas, contents)\nresults, _ := collection.Query(ctx, "search query", 2, nil, nil)',
       takeaway:
         "Eliminate network hops and cloud bills for datasets that easily fit in your host's memory configuration.",
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
     slide4: {
       headline: "Designed for Modern Go CLI & AI Tools.",
@@ -236,7 +236,7 @@ export const presets = {
           desc: "Utilizes comprehensive exhaustive nearest neighbor search via cosine similarity alongside explicit metadata and content $contains filters.",
         },
       ],
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
     slide5: {
       headline: "Go Embed Your Knowledge Base.",
@@ -253,7 +253,7 @@ export const presets = {
         { icon: "⭐", text: "Drop a star on GitHub for philippgille/chromem-go!" },
         { icon: "➡️", text: "Share this with your fellow Go backend engineers." },
       ],
-      backgroundImage: "src/assets/background.png",
+      backgroundImage: "background.png",
     },
   },
 };
