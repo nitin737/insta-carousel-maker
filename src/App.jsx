@@ -4,7 +4,7 @@ import { jsonrepair } from 'jsonrepair';
 
 // Constants
 import { presets } from './constants/presets';
-import { systemPromptText } from './constants/prompt';
+import { generateSystemPrompt } from './constants/prompt';
 
 // Subcomponents
 import Header from './components/Header';
@@ -31,6 +31,7 @@ export default function App() {
   const [data, setData] = useState(presets.cobra);
   const [isPromptCopied, setIsPromptCopied] = useState(false);
   const [handle, setHandle] = useState("@golang_verse");
+  const [repoLink, setRepoLink] = useState("");
   const [headerTheme, setHeaderTheme] = useState("classic");
   const [isScalingActive, setIsScalingActive] = useState(true);
   const [viewMode, setViewMode] = useState("grid");
@@ -70,7 +71,8 @@ export default function App() {
   };
 
   const copyPromptToClipboard = () => {
-    navigator.clipboard.writeText(systemPromptText).then(() => {
+    const textToCopy = generateSystemPrompt(repoLink);
+    navigator.clipboard.writeText(textToCopy).then(() => {
       setIsPromptCopied(true);
       setTimeout(() => setIsPromptCopied(false), 500);
     }).catch(err => {
@@ -180,16 +182,18 @@ export default function App() {
   return (
     <>
       <Header
-        copyPromptToClipboard={copyPromptToClipboard}
         exportAllSlides={exportAllSlides}
-        isPromptCopied={isPromptCopied}
         isExported={isExported}
       />
 
       <div className="main-container">
         <EditorPanel
+          copyPromptToClipboard={copyPromptToClipboard}
+          isPromptCopied={isPromptCopied}
           handle={handle}
           setHandle={setHandle}
+          repoLink={repoLink}
+          setRepoLink={setRepoLink}
           selectedPreset={selectedPreset}
           handlePresetChange={handlePresetChange}
           headerTheme={headerTheme}

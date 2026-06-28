@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Header({ copyPromptToClipboard, exportAllSlides, isPromptCopied, isExported }) {
+export default function Header({ exportAllSlides, isExported }) {
   return (
     <header>
       <div className="logo-container">
@@ -9,13 +9,6 @@ export default function Header({ copyPromptToClipboard, exportAllSlides, isPromp
       </div>
 
       <div className="header-actions">
-        <button
-          className="btn"
-          onClick={copyPromptToClipboard}
-          style={{ transition: 'all 0.3s ease' }}
-        >
-          <span>{isPromptCopied ? '✅' : '📋'}</span> {isPromptCopied ? 'Copied!' : 'Copy Prompt'}
-        </button>
         <button 
           className="btn btn-primary" 
           onClick={exportAllSlides}

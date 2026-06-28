@@ -1,8 +1,12 @@
 import React from 'react';
 
 export default function EditorPanel({
+  copyPromptToClipboard,
+  isPromptCopied,
   handle,
   setHandle,
+  repoLink,
+  setRepoLink,
   selectedPreset,
   handlePresetChange,
   headerTheme,
@@ -26,6 +30,29 @@ export default function EditorPanel({
           placeholder="@golang_verse…"
           autoComplete="off"
         />
+      </div>
+
+      <div className="highlight-box">
+        <label className="section-title" htmlFor="repo-link-input">Target GitHub Repo or Topic</label>
+        <div style={{ display: 'flex', gap: '8px' }}>
+          <input 
+            type="text" 
+            id="repo-link-input" 
+            className="channel-handle-input" 
+            value={repoLink}
+            onChange={(e) => setRepoLink(e.target.value)}
+            placeholder="e.g. github.com/spf13/cobra"
+            autoComplete="off"
+            style={{ flex: 1 }}
+          />
+          <button
+            className="btn"
+            onClick={copyPromptToClipboard}
+            style={{ transition: 'all 0.3s ease', whiteSpace: 'nowrap' }}
+          >
+            <span>{isPromptCopied ? '✅' : '📋'}</span> {isPromptCopied ? 'Copied!' : 'Copy'}
+          </button>
+        </div>
       </div>
 
       <div className="panel-section">

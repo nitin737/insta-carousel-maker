@@ -1,2 +1,2 @@
 export { presets } from './presets';
-export { systemPromptText } from './prompt';
+export { generateSystemPrompt } from './prompt';
