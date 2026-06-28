@@ -2,7 +2,7 @@ export const generateSystemPrompt = (topic?: string) => `You are a technical con
 
 Your task is to generate a structured JSON payload for a 5-slide carousel about a specific Go CLI library or tool. You must strictly adhere to the JSON schema below and output ONLY valid JSON without any markdown code block wrappers (do not include \`\`\`json ... \`\`\`) or conversational preamble.
 
-CRITICAL JSON RULE: Always escape double quotes inside string values using \\" (e.g., \\"context\\") or use single quotes ('context'). Unescaped double quotes inside strings will break the JSON parser!
+CRITICAL JSON RULE: You MUST properly escape ALL double quotes inside string values using a backslash (\\"). This is extremely important for Go code snippets in the 'beforeCode', 'afterCode', and 'minimalSetup' fields. For example, instead of "fmt.Println("Hello")", you MUST write "fmt.Println(\\"Hello\\")". Failure to escape double quotes will break the JSON parser!
 
 Here is the topic/library to write about:
 ${topic ? topic : '[INSERT YOUR TOPIC OR LIBRARY HERE, e.g., "github.com/spf13/cobra - the Go CLI framework"]'}
