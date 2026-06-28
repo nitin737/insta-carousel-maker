@@ -3,12 +3,22 @@ import SlideWrapper from './SlideWrapper';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
 import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
+export interface Slide3Props {
+  slideData?: any;
+  headerTheme?: string;
+  handle?: string;
+  isScalingActive: boolean;
+  exportSingleSlide: (slideNumber: number) => void;
+}
+
 export default function Slide3({
+
   slideData,
   handle,
   isScalingActive,
   exportSingleSlide
-}) {
+
+}: Slide3Props) {
   const headline = slideData?.headline || "";
   const beforeCode = slideData?.beforeCode || "";
   const afterCode = slideData?.afterCode || "";

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactNode } from 'react';
 
 /**
  * SlideWrapper encapsulates the common layout for slides:
@@ -8,6 +8,20 @@ import React from 'react';
  * - Top header (optional)
  * - Bottom footer (handle & action indicator)
  */
+interface SlideWrapperProps {
+  slideNumber: number;
+  isScalingActive: boolean;
+  exportSingleSlide: (slideNumber: number) => void;
+  backgroundImage: string;
+  showHeader?: boolean;
+  badgeText?: string;
+  badgeClass?: string;
+  handle?: string;
+  footerAction?: string;
+  totalSlides?: number;
+  children?: ReactNode;
+}
+
 export default function SlideWrapper({
   slideNumber,
   isScalingActive,
@@ -20,7 +34,7 @@ export default function SlideWrapper({
   footerAction = 'Swipe →',
   totalSlides = 5,
   children
-}) {
+}: SlideWrapperProps) {
   return (
     <div 
       className={`slide-wrapper ${!isScalingActive ? 'actual-size' : ''}`} 

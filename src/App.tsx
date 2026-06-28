@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, ChangeEvent } from 'react';
 import html2canvas from 'html2canvas';
 import { jsonrepair } from 'jsonrepair';
 
@@ -36,11 +36,11 @@ export default function App() {
   const [isScalingActive, setIsScalingActive] = useState(true);
   const [viewMode, setViewMode] = useState("grid");
   const [activeSlide, setActiveSlide] = useState(1);
-  const [jsonError, setJsonError] = useState(null);
+  const [jsonError, setJsonError] = useState<string | null>(null);
   const [customFileName, setCustomFileName] = useState("");
   const [isExported, setIsExported] = useState(false);
 
-  const handleJsonInputChange = (e) => {
+  const handleJsonInputChange = (e: ChangeEvent<HTMLTextAreaElement>) => {
     const value = e.target.value;
     setJsonInput(value);
     try {
@@ -50,16 +50,17 @@ export default function App() {
       const parsed = JSON.parse(repaired);
       setData(parsed);
       setJsonError(null);
-    } catch (err) {
+    } catch (err: any) {
       setJsonError(err.message);
     }
   };
 
-  const handlePresetChange = (e) => {
+  const handlePresetChange = (e: ChangeEvent<HTMLSelectElement>) => {
     const presetKey = e.target.value;
     setSelectedPreset(presetKey);
-    if (presets[presetKey]) {
-      const presetData = presets[presetKey];
+    const presetsRecord = presets as Record<string, any>;
+    if (presetsRecord[presetKey]) {
+      const presetData = presetsRecord[presetKey];
       setJsonInput(JSON.stringify(presetData, null, 2));
       setData(presetData);
       setJsonError(null);
@@ -80,12 +81,13 @@ export default function App() {
     });
   };
 
-  const exportSingleSlide = (slideIndex) => {
+  const exportSingleSlide = (slideIndex: number) => {
     const id = `slide-${slideIndex}`;
     const el = document.getElementById(id);
     if (!el) return;
 
     const wrapper = el.parentElement;
+    if (!wrapper) return;
     const hadFocused = wrapper.classList.contains('focused');
     wrapper.classList.remove('focused');
 
@@ -96,8 +98,10 @@ export default function App() {
       width: 1080,
       height: 1080,
       onclone: (clonedDoc) => {
-        const clonedWrapper = clonedDoc.getElementById(id).parentElement;
-        clonedWrapper.classList.add('actual-size');
+        const clonedEl = clonedDoc.getElementById(id);
+        if (clonedEl && clonedEl.parentElement) {
+          clonedEl.parentElement.classList.add('actual-size');
+        }
       }
     }).then(canvas => {
       const url = canvas.toDataURL('image/jpeg', 0.95);
@@ -132,20 +136,25 @@ export default function App() {
 
     slideIds.forEach((id, index) => {
       const el = document.getElementById(id);
-      const wrapper = el.parentElement;
-      wrapper.classList.remove('focused');
+      const wrapper = el?.parentElement;
+      if (wrapper) {
+        wrapper.classList.remove('focused');
+      }
 
-      html2canvas(el, {
-        scale: 1,
-        useCORS: true,
-        backgroundColor: '#0B0F19',
-        width: 1080,
-        height: 1080,
-        onclone: (clonedDoc) => {
-          const clonedWrapper = clonedDoc.getElementById(id).parentElement;
-          clonedWrapper.classList.add('actual-size');
-        }
-      }).then(canvas => {
+      if (el) {
+        html2canvas(el, {
+          scale: 1,
+          useCORS: true,
+          backgroundColor: '#0B0F19',
+          width: 1080,
+          height: 1080,
+          onclone: (clonedDoc) => {
+            const clonedEl = clonedDoc.getElementById(id);
+            if (clonedEl && clonedEl.parentElement) {
+              clonedEl.parentElement.classList.add('actual-size');
+            }
+          }
+        }).then(canvas => {
         const url = canvas.toDataURL('image/png');
         const a = document.createElement('a');
         a.href = url;
@@ -168,6 +177,7 @@ export default function App() {
       }).catch(err => {
         console.error("Error exporting slide " + (index + 1), err);
       });
+      }
     });
   };
 

@@ -1,4 +1,4 @@
-export const generateSystemPrompt = (topic) => `You are a technical content creator specializing in writing high-retention Instagram Carousel posts for Go (Golang) developers focusing on CLI tooling and developer infrastructure.
+export const generateSystemPrompt = (topic?: string) => `You are a technical content creator specializing in writing high-retention Instagram Carousel posts for Go (Golang) developers focusing on CLI tooling and developer infrastructure.
 
 Your task is to generate a structured JSON payload for a 5-slide carousel about a specific Go CLI library or tool. You must strictly adhere to the JSON schema below and output ONLY valid JSON without any markdown code block wrappers (do not include \`\`\`json ... \`\`\`) or conversational preamble.
 
