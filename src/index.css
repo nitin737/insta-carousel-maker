@@ -202,6 +202,8 @@ h1.app-title {
   width: 100%;
   max-width: 1200px;
   display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
   justify-content: space-between;
   align-items: center;
   padding-bottom: 12px;
@@ -216,7 +218,8 @@ h1.app-title {
 
 .view-controls {
   display: flex;
-  gap: 8px;
+  flex-wrap: wrap;
+  gap: 12px;
 }
 
 .carousel-grid {
@@ -2525,4 +2528,147 @@ h1.app-title {
 
 .s5-resource-url {
   font-size: 1.105rem;
+}
+
+/* ═══════════════════════════════════════════════
+   RESPONSIVE DESIGN MEDIA QUERIES
+═══════════════════════════════════════════════ */
+
+@media (max-width: 1024px) {
+  body {
+    height: auto;
+    overflow-y: auto;
+  }
+  
+  .main-container {
+    flex-direction: column;
+    overflow: visible;
+  }
+  
+  .editor-panel {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    height: auto;
+    overflow-y: visible;
+    padding: 20px;
+  }
+  
+  .textarea-json {
+    height: 350px;
+  }
+  
+  .preview-area {
+    width: 100%;
+    padding: 24px 16px;
+    overflow-y: visible;
+  }
+  
+  .carousel-grid.grid-layout,
+  .carousel-grid {
+    grid-template-columns: 1fr !important;
+    gap: 30px;
+    justify-items: center;
+  }
+  
+  .slide-wrapper {
+    transform: scale(0.35);
+    margin-bottom: -702px;
+    margin-right: -702px;
+  }
+}
+
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    gap: 16px;
+    padding: 20px 16px;
+    align-items: stretch;
+    text-align: center;
+  }
+  
+  .logo-container {
+    justify-content: center;
+  }
+  
+  .header-actions {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .preview-header {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+  }
+  
+  .view-controls {
+    flex-direction: column;
+    width: 100%;
+    gap: 12px;
+  }
+  
+  .view-controls select,
+  .view-controls button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .view-mode-selector {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    gap: 8px;
+  }
+  
+  .view-mode-selector button {
+    flex: 1;
+    padding: 8px;
+  }
+  
+  .simulator-navigation {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .btn-nav {
+    padding: 8px 12px;
+    font-size: 0.85rem;
+    background-color: var(--color-secondary);
+    color: var(--color-neutral-bright);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: var(--rounded-sm);
+    cursor: pointer;
+  }
+  
+  .slide-wrapper {
+    transform: scale(0.28);
+    margin-bottom: -777.6px;
+    margin-right: -777.6px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-wrapper {
+    transform: scale(0.25);
+    margin-bottom: -810px;
+    margin-right: -810px;
+  }
+  
+  .preview-area {
+    padding: 16px 8px;
+  }
+  
+  .textarea-json {
+    height: 250px;
+  }
 }
