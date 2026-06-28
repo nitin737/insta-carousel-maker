@@ -35,7 +35,7 @@ Here is the topic/library to write about:
     "contributorsCount": 280,
     "langGoPct": 98.7,
     "langOtherPct": 1.3,
-    "backgroundImage": "src/assets/slide1-bg.jpg"
+    "backgroundImage": "slide1-bg.jpg"
   },
   "slide2": {
     "headline": "Solve CLI Boilerplate with Zero Friction.",
@@ -46,14 +46,14 @@ Here is the topic/library to write about:
       "Standardized: Uses only standard Go patterns.",
       "High Performance: Optimized to avoid allocations."
     ],
-    "backgroundImage": "src/assets/background.png"
+    "backgroundImage": "background.png"
   },
   "slide3": {
     "headline": "Standard Library—But Smarter.",
     "beforeCode": "// 15+ lines of manual handling\\nflag.Parse()\\n...",
     "afterCode": "// 3 lines to handle parsing\\nrootCmd.Execute()",
     "takeaway": "Integrates seamlessly with your existing Go codebase.",
-    "backgroundImage": "src/assets/background.png"
+    "backgroundImage": "background.png"
   },
   "slide4": {
     "headline": "Designed for Real-World Go Projects.",
@@ -75,7 +75,7 @@ Here is the topic/library to write about:
         "desc": "Built-in support for config management."
       }
     ],
-    "backgroundImage": "src/assets/background.png"
+    "backgroundImage": "background.png"
   },
   "slide5": {
     "headline": "Add This to Your Go.mod Today.",
@@ -91,6 +91,6 @@ Here is the topic/library to write about:
       { "icon": "⭐", "text": "Star us on GitHub if you find it useful." },
       { "icon": "➡️", "text": "Share with your engineering team!" }
     ],
-    "backgroundImage": "src/assets/background.png"
+    "backgroundImage": "background.png"
   }
 }`;
