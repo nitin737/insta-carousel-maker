@@ -130,8 +130,10 @@ export default function EditorPanel({
           style={{ borderColor: jsonError ? '#ff4d4f' : undefined }}
           value={jsonInput}
           onChange={handleJsonInputChange}
+          aria-invalid={jsonError ? "true" : "false"}
+          aria-describedby={jsonError ? "json-error-message" : undefined}
         />
-        {jsonError && <div style={{ color: '#ff4d4f', fontSize: '0.75rem', marginTop: '6px' }}>Error: {jsonError}</div>}
+        {jsonError && <div id="json-error-message" role="alert" style={{ color: '#ff4d4f', fontSize: '0.75rem', marginTop: '6px' }}>Error: {jsonError}</div>}
       </div>
 
       <div className="help-banner">
